@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>DevBoard Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🚀 DevBoard Pro</h1>
+
+<div class="form">
+  <input id="title" placeholder="Nome da tarefa">
+  <input id="time" type="number" placeholder="Tempo (min)">
+  <button onclick="addTask()">Adicionar</button>
+</div>
+
+<div class="board">
+  <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>To Do</h2>
+  </div>
+
+  <div class="column" id="doing" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>Doing</h2>
+  </div>
+
+  <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>Done</h2>
+  </div>
+</div>
+
+<div class="dashboard">
+  <h3>📊 Dashboard</h3>
+  <p id="total">Tempo total: 0 min</p>
+  <p id="doneTasks">Concluídas: 0</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
