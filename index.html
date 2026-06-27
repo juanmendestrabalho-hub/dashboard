@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>DevBoard Pro</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title> dashboard X</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-<h1>🚀 DevBoard Pro</h1>
+<header>
+  <h1> dashboard X</h1>
+  <button onclick="toggleTheme()">🌙 Tema</button>
+</header>
 
-<div class="form">
-  <input id="title" placeholder="Nome da tarefa">
-  <input id="time" type="number" placeholder="Tempo (min)">
+<section class="controls">
+  <input id="boardName" placeholder="Novo Board">
+  <button onclick="createBoard()">Criar</button>
+
+  <select id="boardSelect"></select>
+
+  <input id="taskTitle" placeholder="Tarefa">
+  <input id="taskTime" type="number" placeholder="Min">
+  <select id="taskType">
+    <option>Dev</option>
+    <option>Bug</option>
+    <option>Study</option>
+  </select>
+
   <button onclick="addTask()">Adicionar</button>
-</div>
+  <button onclick="exportData()">Exportar</button>
+</section>
 
-<div class="board">
-  <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h2>To Do</h2>
-  </div>
+<section class="board">
+  <div class="column" id="todo"></div>
+  <div class="column" id="doing"></div>
+  <div class="column" id="done"></div>
+</section>
 
-  <div class="column" id="doing" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h2>Doing</h2>
-  </div>
-
-  <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h2>Done</h2>
-  </div>
-</div>
-
-<div class="dashboard">
-  <h3>📊 Dashboard</h3>
-  <p id="total">Tempo total: 0 min</p>
-  <p id="doneTasks">Concluídas: 0</p>
-</div>
+<section class="dashboard">
+  <h3> Analytics</h3>
+  <canvas id="chart"></canvas>
+</section>
 
 <script src="script.js"></script>
+<script src="charts.js"></script>
+
 </body>
 </html>
